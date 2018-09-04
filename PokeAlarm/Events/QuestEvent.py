@@ -19,6 +19,8 @@ class QuestEvent(BaseEvent):
         self.stop_id = data['pokestop_id']
         self.stop_name = data['name']
         self.stop_image = data['url']
+        self.user_id = data['user_id']
+        self.user_name = data['user_name']
 
         # Location
         self.lat = float(data['latitude'])
@@ -36,7 +38,7 @@ class QuestEvent(BaseEvent):
         # Quest Details
         self.quest = data['quest']
         self.reward = data['reward']
-        self.expiry = datetime.datetime.now().strftime("%d/%m/%Y 23:59")
+        self.expiry = datetime.datetime.now().strftime("%A")
 
     def generate_dts(self, locale, timezone, units):
         """ Return a dict with all the DTS for this event. """
@@ -46,6 +48,8 @@ class QuestEvent(BaseEvent):
             'stop_id': self.stop_id,
             'stop_name': self.stop_name,
             'stop_image': self.stop_image,
+            'user_id': self.user_id,
+            'user_name': self.user_name,
             # Location
             'lat': self.lat,
             'lng': self.lng,
