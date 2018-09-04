@@ -21,6 +21,8 @@ class RaidEvent(BaseEvent):
 
         # Identification
         self.gym_id = data.get('gym_id')
+        self.user_id = data['user_id']
+        self.user_name = data['user_name']
 
         # Time Remaining
         self.raid_end = datetime.utcfromtimestamp(
@@ -112,6 +114,8 @@ class RaidEvent(BaseEvent):
         dts.update({
             # Identification
             'gym_id': self.gym_id,
+            'user_id': self.user_id,
+            'user_name': self.user_name,
 
             # Time Remaining
             'raid_time_left': raid_end_time[0],
