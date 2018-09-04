@@ -38,7 +38,7 @@ class QuestEvent(BaseEvent):
         # Quest Details
         self.quest = data['quest']
         self.reward = data['reward']
-        self.expiry = datetime.datetime.now().strftime("%A")
+        self.expiry = datetime.datetime.now().strftime("%d/%m/%Y 23:59")
 
     def generate_dts(self, locale, timezone, units):
         """ Return a dict with all the DTS for this event. """
